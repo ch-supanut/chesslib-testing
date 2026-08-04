@@ -1,8 +1,10 @@
 # chesslib-testing — SWENG 881 Group Project
 
+[![CI](https://github.com/ch-supanut/chesslib-testing/actions/workflows/maven.yml/badge.svg)](https://github.com/ch-supanut/chesslib-testing/actions/workflows/maven.yml)
+
 Software quality evaluation of [**chesslib**](https://github.com/bhlangonijr/chesslib), an open-source Java chess library, using the testing techniques covered in SWENG 881.
 
-**Team:** Supanut Chindawan, Mathew
+**Team:** Supanut Chindawan, Mathew Rogers
 
 ---
 
