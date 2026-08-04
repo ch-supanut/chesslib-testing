@@ -1,0 +1,36 @@
+name: CI
+
+# รันทุกครั้งที่ push และทุกครั้งที่เปิด pull request
+on:
+  push:
+  pull_request:
+  workflow_dispatch:      # ให้กดรันเองได้จากหน้าเว็บ GitHub
+
+jobs:
+  test:
+    name: Build and run test suite
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          cache: maven          # cache dependency ไว้ ทำให้รันครั้งถัดไปเร็วขึ้นมาก
+
+      - name: Run test suite
+        run: mvn -B test
+
+      - name: Upload test reports
+        if: always()            # อัปโหลดแม้เทสต์จะ fail จะได้เอาไปดูสาเหตุได้
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-reports
+          path: |
+            target/surefire-reports/
+            target/cucumber-report.html
+          if-no-files-found: ignore
