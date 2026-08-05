@@ -86,8 +86,10 @@ CI reports regressions rather than re-reporting documented library defects on ev
 mvn test -Dexcluded.test.groups=     # run everything, including the failing defect tests
 ```
 
-Defects found so far are catalogued in
-[docs/input-domain-model-loadFromFen.md](docs/input-domain-model-loadFromFen.md).
+Defects found so far are catalogued in the test design documents:
+
+- [docs/input-domain-model-loadFromFen.md](docs/input-domain-model-loadFromFen.md) — D-01 to D-07
+- [docs/graph-based-testing-doMove.md](docs/graph-based-testing-doMove.md) — D-08 to D-10, plus observation O-01
 
 ---
 
