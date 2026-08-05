@@ -76,6 +76,19 @@ mvn test -Dtest=RunCucumberTest
 
 A Cucumber HTML report is written to `target/cucumber-report.html` after each run.
 
+### Known-defect tests
+
+Some tests assert what a specification requires and currently fail because chesslib 1.3.7
+does not comply. These are tagged `known-defect` and excluded from the default run so that
+CI reports regressions rather than re-reporting documented library defects on every commit.
+
+```bash
+mvn test -Dexcluded.test.groups=     # run everything, including the failing defect tests
+```
+
+Defects found so far are catalogued in
+[docs/input-domain-model-loadFromFen.md](docs/input-domain-model-loadFromFen.md).
+
 ---
 
 ## Continuous Integration

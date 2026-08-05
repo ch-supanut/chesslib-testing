@@ -6,9 +6,10 @@ import com.github.bhlangonijr.chesslib.Board;
 import io.cucumber.java.en.*;
 
 /**
- * Step definitions สำหรับ Checkmate.feature
- * เมธอดที่ทดสอบ: Board.isMated()
- * ผู้รับผิดชอบ: Supanut
+ * Step definitions for Checkmate.feature.
+ *
+ * <p>Method under test: {@code Board.isMated()}
+ * <p>Owner: Supanut
  */
 public class CheckmateSteps {
 

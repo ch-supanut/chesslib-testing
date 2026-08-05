@@ -7,8 +7,11 @@ import com.github.bhlangonijr.chesslib.Side;
 import org.junit.jupiter.api.Test;
 
 /**
- * Smoke test ยืนยันว่า chesslib ถูกดึงมาได้และทำงานได้ทั้งในเครื่องและบน CI
- * ไม่ใช่ test case ของเทคนิคใดเทคนิคหนึ่ง เป็นแค่ตัวเช็ก environment
+ * Checks that chesslib is on the classpath and works, both on a developer machine
+ * and on the CI runner.
+ *
+ * <p>These are not test cases for any of the testing techniques in the project.
+ * They only confirm that the build and the dependency are set up correctly.
  */
 public class EnvironmentSmokeTest {
 
@@ -17,9 +20,9 @@ public class EnvironmentSmokeTest {
         Board board = new Board();
 
         assertEquals(Side.WHITE, board.getSideToMove(),
-                "ตำแหน่งเริ่มเกม ฝ่ายขาวต้องเป็นฝ่ายเดิน");
+                "White moves first in the starting position");
         assertEquals(20, board.legalMoves().size(),
-                "ตำแหน่งเริ่มเกมมีตาเดินที่ถูกกฎ 20 ตา (เบี้ย 16 + ม้า 4)");
+                "The starting position has 20 legal moves (16 pawn moves + 4 knight moves)");
     }
 
     @Test
@@ -28,6 +31,6 @@ public class EnvironmentSmokeTest {
         board.loadFromFen("k7/8/1Q6/8/8/8/8/4K3 b - - 0 1");
 
         assertEquals(Side.BLACK, board.getSideToMove(),
-                "FEN ระบุ 'b' ฝ่ายดำต้องเป็นฝ่ายเดิน");
+                "The FEN says 'b', so Black is to move");
     }
 }

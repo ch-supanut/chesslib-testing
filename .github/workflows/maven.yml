@@ -1,10 +1,10 @@
 name: CI
 
-# รันทุกครั้งที่ push และทุกครั้งที่เปิด pull request
+# Runs on every push and on every pull request
 on:
   push:
   pull_request:
-  workflow_dispatch:      # ให้กดรันเองได้จากหน้าเว็บ GitHub
+  workflow_dispatch:      # lets us start a run by hand from the GitHub website
 
 jobs:
   test:
@@ -20,13 +20,13 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-          cache: maven          # cache dependency ไว้ ทำให้รันครั้งถัดไปเร็วขึ้นมาก
+          cache: maven          # keeps downloaded dependencies so later runs are much faster
 
       - name: Run test suite
         run: mvn -B test
 
       - name: Upload test reports
-        if: always()            # อัปโหลดแม้เทสต์จะ fail จะได้เอาไปดูสาเหตุได้
+        if: always()            # upload even when tests fail, so we can read the reports
         uses: actions/upload-artifact@v4
         with:
           name: test-reports

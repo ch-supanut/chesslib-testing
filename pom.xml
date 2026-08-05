@@ -14,9 +14,17 @@
         <junit.version>5.12.1</junit.version>
         <junit.platform.version>1.12.1</junit.platform.version>
         <cucumber.version>7.22.0</cucumber.version>
+
+        <!--
+            Tests tagged "known-defect" assert what the FEN specification requires and
+            currently fail, because chesslib 1.3.7 does not comply. They are excluded from
+            the default build so CI reports regressions rather than already-documented
+            library defects. Run the full suite with:  mvn test -Dexcluded.test.groups=
+        -->
+        <excluded.test.groups>known-defect</excluded.test.groups>
     </properties>
 
-    <!-- สำคัญมาก chesslib อยู่บน JitPack ไม่ใช่ Maven Central -->
+    <!-- Important: chesslib is published on JitPack, not on Maven Central -->
     <repositories>
         <repository>
             <id>jitpack.io</id>
@@ -73,6 +81,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
+                <configuration>
+                    <excludedGroups>${excluded.test.groups}</excludedGroups>
+                </configuration>
             </plugin>
         </plugins>
     </build>

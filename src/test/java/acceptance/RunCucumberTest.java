@@ -8,10 +8,10 @@ import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
 import static io.cucumber.junit.platform.engine.Constants.PLUGIN_PROPERTY_NAME;
 
 /**
- * Cucumber runner สำหรับงาน Acceptance Testing (Lesson 5)
+ * Cucumber runner for the acceptance tests (Lesson 5).
  *
- * อ่านไฟล์ .feature ทั้งหมดจาก src/test/resources/features
- * และใช้ step definitions จาก package "acceptance"
+ * <p>It reads every .feature file under src/test/resources/features and uses the
+ * step definitions in the "acceptance" package.
  */
 @Suite
 @SelectClasspathResource("features")
