@@ -90,6 +90,7 @@ Defects found so far are catalogued in the test design documents:
 
 - [docs/input-domain-model-loadFromFen.md](docs/input-domain-model-loadFromFen.md) — D-01 to D-07
 - [docs/graph-based-testing-doMove.md](docs/graph-based-testing-doMove.md) — D-08 to D-10, plus observation O-01
+- [docs/exploratory-testing-doMove-undoMove.md](docs/exploratory-testing-doMove-undoMove.md) — D-11
 
 ---
 
